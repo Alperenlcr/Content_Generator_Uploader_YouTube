@@ -181,26 +181,10 @@ if __name__ == '__main__':
         exit("Please specify a valid file using the --file= parameter.")
 
     youtube = get_authenticated_service(args)
-
+    print("initializing done")
+    exit(1)
     try:
         initialize_upload(youtube, args)
     except HttpError as e:
         print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
 
-
-"""
-python3 upload_video.py --file="/home/alperenlcr/bitirme/output_village.mp4" --title="Title Deneme" --description="Description deneme
-
-00:00 Introduction00:53 Top 10 Places to Visit
-04:10 Most Delicious 5 Foods to Taste
-05:10 Useful 5 Public Transportation Tips
-05:45 Best 5 Hotels to Stay
-06:43 Conclusion
-" --keywords="what,is,this" --category="19" --privacyStatus="private"
-
-
-
-python3 YouTube_Uploader/upload_video.py --file="/home/alperenlcr/Content_Generator_Uploader_YouTube/Data/short_videos/Cancun, Mexico - Cenote Ik Kil.mp4" --title="Cancun, Mexico - Cenote Ik Kil" --description="#cancun #mexico 
-For full video visit the profile.
-@WishYouBestt" --keywords="what,is,this" --category="19" --privacyStatus="private"
-"""

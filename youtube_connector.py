@@ -18,7 +18,7 @@ class YouTubeConnector:
         self.WishYouBest_id = "UCnoEfubD-FvugKnhCTEVXGQ"
         self.playlist_id = "PLc6oHh26s0md2mQCUaGkyjYruDORvuwGL"
         self.service = self.connect_youtube()
-        self.local_temp_folder = "/home/alperenlcr/Content_Generator_Uploader_YouTube/Data"
+        self.local_temp_folder = os.getcwd() + "/Data"
         self.short_upload_pause = 0.01 # minutes
 
 
@@ -96,7 +96,7 @@ class YouTubeConnector:
         video_title = f"Amazing Places, Foods, Hotels and More in {city_name}"
         mode = "public"
         catagory = "19" # Travel & Events
-        path = self.local_temp_folder[:-4] + "YouTube_Uploader/upload_video.py"
+        path = self.local_temp_folder[:-4] + "/upload_video.py"
         tags = "Travel,Adventure,Explore,AmazingPlaces,CulinaryJourney,FoodieFinds,HotelLife,Wanderlust,TravelInspiration,ExoticEats,LuxuryHotels,HiddenGems,TravelVibes,AdventureAwaits,BucketListDestinations,TravelGoals,VacationDreams,WorldWonders,TravelDiaries,EpicJourneys,BestEats,LuxuryTravel,DreamDestinations,BoutiqueHotels,AdventureSeeker,UnforgettableExperiences,FoodExplorer,SpectacularViews,MustVisitPlaces,GlobalCuisine,ExploreTheWorld,TravelEnthusiast,VacationGoals,InspiringPlaces,HotelLuxury,hi,world"
 
         with open(f"{self.local_temp_folder}/video_description.txt", "r") as file:
@@ -108,7 +108,7 @@ class YouTubeConnector:
             python3 {path} --file="{video_path}" --title="{video_title}" --description="{video_description}" --keywords="{tags}" --category="{catagory}" --privacyStatus="{mode}"
         """
         os.system(command)
-
+        exit(1)
         # read video_id from video_id.txt
         with open("video_id.txt", "r") as file:
             video_id = file.read()
@@ -163,7 +163,7 @@ class YouTubeConnector:
             short_description = file.read()
         mode = "public"
         catagory = "19" # Travel & Events
-        path = self.local_temp_folder[:-4] + "YouTube_Uploader/upload_video.py"
+        path = self.local_temp_folder[:-4] + "/upload_video.py"
         tags = "Travel,Adventure,Explore,AmazingPlaces,CulinaryJourney,FoodieFinds,HotelLife,Wanderlust,TravelInspiration,ExoticEats,LuxuryHotels,HiddenGems,TravelVibes,AdventureAwaits,BucketListDestinations,TravelGoals,VacationDreams,WorldWonders,TravelDiaries,EpicJourneys,BestEats,LuxuryTravel,DreamDestinations,BoutiqueHotels,AdventureSeeker,UnforgettableExperiences,FoodExplorer,SpectacularViews,MustVisitPlaces,GlobalCuisine,ExploreTheWorld,TravelEnthusiast,VacationGoals,InspiringPlaces,HotelLuxury,hi,world"
         for short_path in shorts:
             self.pause()
