@@ -181,8 +181,7 @@ if __name__ == '__main__':
         exit("Please specify a valid file using the --file= parameter.")
 
     youtube = get_authenticated_service(args)
-    print("initializing done")
-    exit(1)
+
     try:
         initialize_upload(youtube, args)
     except HttpError as e:

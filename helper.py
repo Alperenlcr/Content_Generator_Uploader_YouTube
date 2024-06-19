@@ -53,17 +53,17 @@ class Helper:
         Upload it to YouTube.
         """
         # Clear the temporary folder
-        # print("Clearing the temporary folder...")
-        # self.clear_temp_folder()
+        print("Clearing the temporary folder...")
+        self.clear_temp_folder()
 
-        # # Find a content folder to upload to YouTube
-        # print("Finding a content folder to upload to YouTube...")
-        # city_name, folder_id = self.select_content()
+        # Find a content folder to upload to YouTube
+        print("Finding a content folder to upload to YouTube...")
+        city_name, folder_id = self.select_content()
 
-        # # Download the content folder from Google Drive
-        # print(f"{city_name} content is downloading from drive...")
-        # self.drive_connector.download_folder(folder_id, self.local_temp_folder)
-        city_name = "Dubrovnik, Croatia"
+        # Download the content folder from Google Drive
+        print(f"{city_name} content is downloading from drive...")
+        self.drive_connector.download_folder(folder_id, self.local_temp_folder)
+
         # Video upload
         print(f"{city_name} video is uploading to YouTube...")
         self.youtube_connector.upload_video(city_name)

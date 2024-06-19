@@ -108,7 +108,7 @@ class YouTubeConnector:
             python3 {path} --file="{video_path}" --title="{video_title}" --description="{video_description}" --keywords="{tags}" --category="{catagory}" --privacyStatus="{mode}"
         """
         os.system(command)
-        exit(1)
+
         # read video_id from video_id.txt
         with open("video_id.txt", "r") as file:
             video_id = file.read()
