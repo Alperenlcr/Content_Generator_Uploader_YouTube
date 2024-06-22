@@ -9,12 +9,15 @@ from youtube_connector import YouTubeConnector
 from drive_connector import DriveConnector
 
 
+repo_path = "/home/ubuntu/YouTube_Uploader"
+
+
 class Helper:
     def __init__(self) -> None:
         self.youtube_connector = YouTubeConnector()
         self.drive_connector = DriveConnector()
         self.drive_alperen_video_folder_id = "1IVyRmVxTdFijHnPZfKrkAWxuq9EaiW4S"
-        self.local_temp_folder = os.getcwd() + "/Data"
+        self.local_temp_folder = repo_path + "/Data"
 
 
     def select_content(self) -> tuple:
