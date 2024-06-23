@@ -7,9 +7,7 @@ import os
 import random
 from youtube_connector import YouTubeConnector
 from drive_connector import DriveConnector
-
-
-repo_path = "/home/ubuntu/YouTube_Uploader"
+from config import repo_path, testing_cred
 
 
 class Helper:
@@ -70,6 +68,9 @@ class Helper:
         # Video upload
         print(f"{city_name} video is uploading to YouTube...")
         self.youtube_connector.upload_video(city_name)
+
+        if testing_cred:
+            exit(1)
 
         # Shorts upload
         print(f"{city_name} shorts are uploading to YouTube...")

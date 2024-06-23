@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
-from helper import repo_path
+from config import repo_path
 
 
 class DriveConnector:
@@ -36,7 +36,7 @@ class DriveConnector:
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    repo_path + "/token_drive.json", self.SCOPES
+                    repo_path + "/credentials.json", self.SCOPES
                 )
                 creds = flow.run_local_server(port=0)
             # Save the credentials for the next run

@@ -12,7 +12,7 @@ from apiclient.http import MediaFileUpload # type: ignore
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 from oauth2client.tools import argparser, run_flow
-from helper import repo_path
+from config import repo_path, testing_cred
 
 
 # Explicitly tell the underlying HTTP transport library not to retry, since
@@ -182,7 +182,8 @@ if __name__ == '__main__':
         exit("Please specify a valid file using the --file= parameter.")
 
     youtube = get_authenticated_service(args)
-
+    if testing_cred:
+        exit(1)
     try:
         initialize_upload(youtube, args)
     except HttpError as e:

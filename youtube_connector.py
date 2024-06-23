@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
-from helper import repo_path
+from config import repo_path, testing_cred, pause_minutes
 
 
 class YouTubeConnector:
@@ -20,7 +20,7 @@ class YouTubeConnector:
         self.playlist_id = "PLc6oHh26s0md2mQCUaGkyjYruDORvuwGL"
         self.service = self.connect_youtube()
         self.local_temp_folder = repo_path + "/Data"
-        self.short_upload_pause = 60 # minutes
+        self.short_upload_pause = pause_minutes
 
 
     def pause(self) -> None:
@@ -48,7 +48,7 @@ class YouTubeConnector:
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    repo_path + "/token_youtube.json", self.SCOPES
+                    repo_path + "/credentials.json", self.SCOPES
                 )
                 creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
@@ -109,6 +109,9 @@ class YouTubeConnector:
             python3 {path} --file="{video_path}" --title="{video_title}" --description="{video_description}" --keywords="{tags}" --category="{catagory}" --privacyStatus="{mode}"
         """
         os.system(command)
+
+        if testing_cred:
+            exit(1)
 
         # read video_id from video_id.txt
         with open("video_id.txt", "r") as file:
