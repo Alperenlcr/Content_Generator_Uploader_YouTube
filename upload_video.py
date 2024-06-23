@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import httplib2
 import os
 import random
@@ -182,10 +180,9 @@ if __name__ == '__main__':
         exit("Please specify a valid file using the --file= parameter.")
 
     youtube = get_authenticated_service(args)
-    if testing_cred:
-        exit(1)
-    try:
-        initialize_upload(youtube, args)
-    except HttpError as e:
-        print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
+    if not testing_cred:
+        try:
+            initialize_upload(youtube, args)
+        except HttpError as e:
+            print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
 

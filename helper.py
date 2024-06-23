@@ -70,6 +70,7 @@ class Helper:
         self.youtube_connector.upload_video(city_name)
 
         if testing_cred:
+            print("Testing Done")
             exit(1)
 
         # Shorts upload

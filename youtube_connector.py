@@ -111,7 +111,7 @@ class YouTubeConnector:
         os.system(command)
 
         if testing_cred:
-            exit(1)
+            return
 
         # read video_id from video_id.txt
         with open("video_id.txt", "r") as file:
