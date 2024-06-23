@@ -150,6 +150,8 @@ class YouTubeConnector:
                     'title': video_title,
                     "defaultLanguage": "en",
                     "categoryId": catagory,
+                    "description":video_description,
+                    "tags":tags
                 }
             }
         )
