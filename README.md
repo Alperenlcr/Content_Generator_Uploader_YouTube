@@ -2,17 +2,17 @@
 ## Installation
 - Create virtual environment
 ```sh
-cd ~ && \
-python3 -m venv py_env && \
-echo "alias load='source ~/py_env/bin/activate'" >> ~/.bashrc && \
+cd ~
+python3 -m venv py_env
+echo "alias load='source ~/py_env/bin/activate'" >> ~/.bashrc
 source ~/.bashrc
 ```
 - Clone repository and install libraries
 ```sh
-cd ~ && \
-git clone git@github.com:Alperenlcr/YouTube_Uploader.git && \
-git checkout v0.1.0 && \
-load && \
+cd ~
+git clone git@github.com:Alperenlcr/YouTube_Uploader.git
+git checkout v0.1.0
+load
 pip3 install req.txt
 ```
 - Arrange credentials and test
